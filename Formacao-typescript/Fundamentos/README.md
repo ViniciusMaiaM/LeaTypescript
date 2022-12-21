@@ -27,4 +27,11 @@ __Tipos Primitivos:__
 - Estruturas similares a outras linguagens
 - Normalmente objetos literais são utilizados para deixar o código mais "limpo"
 
+### Array:
+- Estruturas similares a outras linguagens
+- Possui alguns metodos específicos pra se lidar com arrays (.find, .forEach, .map e outros)
 
+### POO: 
+- Classes são "formas" para os objetos
+- Sempre possuem um metodo construtor, implicito ou explicito
+- "this" quer dizer que quer acessar a propriedade especifica referenciada do objeto
