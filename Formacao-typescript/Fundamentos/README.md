@@ -23,4 +23,8 @@ __Tipos Primitivos:__
 - "?" Significa que o tipo é opcional
 - É possível declarar arrays "number[]" ou "Array<number>"
 
+### Decisão e repetição:
+- Estruturas similares a outras linguagens
+- Normalmente objetos literais são utilizados para deixar o código mais "limpo"
+
 
