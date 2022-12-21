@@ -12,5 +12,7 @@ class User {
     }
 }
 
-const teste = new User("Vinicius",19);
+const teste: User = new User("Vinicius",19); // É bom declarar o tipo para a melhor manutenção 
+// e entendimento desse código
+
 teste.show_name()
