@@ -53,3 +53,4 @@ __Visibilidade:__
 - Public: Pode ser acessado de qualquer lugar, se não declaro já é subtendido como public
 - Private: Só pode ser acessado internamente no objeto que foi declaro
 - Readonly: Atributo pode ser apenas lido, um valor é atribuido a ele apenas na construção do objeto
+- Protected: Pode ser acessado pela mesma classe e pelos seus filhos
