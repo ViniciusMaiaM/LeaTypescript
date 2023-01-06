@@ -8,8 +8,8 @@ function App() {
     <>
       <div>
         Hello World!
-        <Card />
-        <Card />
+        <Card id={1}/> {/*É necessário passar o parâmetro dessa maneira */} 
+        <Card id={2}/>
       </div>
       <div>
         footer
