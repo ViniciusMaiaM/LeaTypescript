@@ -2,14 +2,12 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Card } from './components/Card';
-import { Header } from './components/Header';
-import { Footer } from './components/Footer';
+import { Layout } from './components/Layout';
 
 function App() {
   return (
     <>
-      <Header/>
-      <div>
+      <Layout>
         Hello World!
         <Card 
           id={1}  /*É necessário passar o parâmetro dessa maneira */
@@ -21,8 +19,7 @@ function App() {
           paragraph='HTML'
           details='HTML para frontend'
           />
-      </div>
-      <Footer/>
+      </Layout>
     </>
   );
 }
