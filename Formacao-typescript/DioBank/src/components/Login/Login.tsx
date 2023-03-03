@@ -23,7 +23,9 @@ import { theme } from './Theme';
 export const Login = () => {
     const [show, setShow] = React.useState(false)
     const handleClick = () => setShow(!show)
+    const [email, setEmail] = useState('');
 
+    console.log(email);
     return (
         <ChakraProvider theme={theme}>
             <Box minHeight='100vh' backgroundColor='#820AD1' padding='25px'>
@@ -39,8 +41,9 @@ export const Login = () => {
                             <Center>
                                 <FormControl variant='floating' id='first-name' >
                                     <InputGroup width='xs' >
-                                        <Input placeholder=" " type='email' variant='flushed' focusBorderColor='#820AD1'/>
-                                        <FormLabel color='#7A859E' fontWeight='400'>CPF</FormLabel>
+                                        <Input placeholder=" " type='email' variant='flushed' focusBorderColor='#820AD1' value={email} onChange={
+                                            (event) => {setEmail(event.target.value)}}/>
+                                        <FormLabel color='#7A859E' fontWeight='400'>Email</FormLabel>
                                     </InputGroup>
                                 </FormControl>
                             </Center>
@@ -56,7 +59,7 @@ export const Login = () => {
                         </CardBody>
                         <Flex alignItems='center' direction='column' pb='20px' gap='8px'>
                             <CardFooter pb='25px'>
-                                <LoginButton action={login} alert="Login"/>
+                                <LoginButton action={() => login(email)} alert="Login"/>
                             </CardFooter>
                             <Link href='https://github.com/viniciusMaiaM/' color='#820AD1' fontWeight='bold' isExternal>
                                 Esqueci Minha Senha <ExternalLinkIcon mx='2px' />
