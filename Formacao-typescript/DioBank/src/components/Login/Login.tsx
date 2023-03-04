@@ -14,18 +14,36 @@ import {
 } from '@chakra-ui/react'
 
 import { Card, CardBody, CardFooter, CardHeader } from '@chakra-ui/card';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { login } from '../../services/login'
 import { LoginButton } from '../Button/LoginButton'
 import { theme } from './Theme';
+import { api } from '../api';
+
+interface userData{
+    email: string,
+    password: string,
+    name: string
+
+}
 
 export const Login = () => {
     const [show, setShow] = React.useState(false)
     const handleClick = () => setShow(!show)
     const [email, setEmail] = useState('');
+    const [userData, setUserData] = useState<null | userData>();
+    // Definindo que o useState pode ser null ou de tipo userData
 
-    console.log(email);
+    useEffect(() => {
+        const getData = async () => {
+            const data: any | userData = await api;
+            setUserData(data);
+        }
+
+        getData();
+    }, []);
+
     return (
         <ChakraProvider theme={theme}>
             <Box minHeight='100vh' backgroundColor='#820AD1' padding='25px'>
@@ -33,6 +51,9 @@ export const Login = () => {
                     <Card backgroundColor='#FFFFFF' borderRadius='7px' p='6' marginTop='10' width='59vh' gap='10' boxShadow='2xl'>
                         <CardHeader p='25px'>
                             <Center>
+                                {userData === null || userData === undefined 
+                                ? <h1>Loading...</h1>
+                                : <h1>Informações carregadas</h1>}
                                 <Heading size='lg'>Faça Login</Heading>
                             </Center>
                         </CardHeader>
