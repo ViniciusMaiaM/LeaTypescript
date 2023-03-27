@@ -1,4 +1,4 @@
-import { Box, Center, SimpleGrid } from '@chakra-ui/react'
+import { Box, Center, SimpleGrid, Spinner } from '@chakra-ui/react'
 import CardInfo from '../CardInfo'
 import { useEffect, useState} from 'react';
 import { api } from '../api';
@@ -21,11 +21,26 @@ const Conta = () => {
 
         getData();
     }, [])
+
+    const actualDate = new Date()
     return (
         <Center>
             <SimpleGrid columns={2} spacing={8} paddingTop={16}>
-                <CardInfo text='Informações de acesso'/>
-                <CardInfo text='Informações da conta'/>
+                {
+                    userData === undefined || userData === null ? 
+                    (
+                        <Center>
+                            <Spinner size='xl' color='white'/>
+                        </Center>
+                    ):
+                    (
+                        <>
+                            <CardInfo mainContent= {`Bem vindo ${userData?.name}`} content={`${actualDate.getDay()} / ${actualDate.getMonth()} / ${actualDate.getFullYear()} ${actualDate.getHours()}:${actualDate.getMinutes()} `}/> 
+                            <CardInfo mainContent='Saldo' content={`R$ ${userData.balance}`}/>
+                        </>
+                        
+                    )
+                }
             </SimpleGrid>
         </Center>
     )
